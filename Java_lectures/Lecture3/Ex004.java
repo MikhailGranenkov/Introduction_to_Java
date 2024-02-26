@@ -1,4 +1,9 @@
-package Lesson_03;
+package Java_lectures.Lecture3;
+
+
+// Этот код на Java создает массив date из трех элементов типа Integer, представляющих день, месяц и год. Затем массив преобразуется в список с помощью метода Arrays.asList(). Полученный список выводится на консоль и содержит значения дня, месяца и года в виде [29, 9, 1990].
+
+
 import java.util.Arrays;
 import java.util.List;
 
