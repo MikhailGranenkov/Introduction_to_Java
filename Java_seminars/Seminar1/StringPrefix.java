@@ -5,28 +5,43 @@ package Seminar1;
 // префикса среди массива строк.
 // Если общего префикса нет, вернуть пустую строку "".
 
+
+// Пояснения:
+// String[] strings = { "flower", "flow", "flight" };: Это заданный массив строк.
+// В цикле for происходит обход массива строк, начиная с индекса 1.
+// В методе getPrefix изначально принимается, что префиксом является первая строка массива.
+// Затем в цикле проверяется каждая строка из массива.
+// Если она не начинается с текущего префикса, префикс уменьшается на один символ справа.
+// Если префикс становится пустым (то есть не найден общий префикс для всех строк),
+// возвращается пустая строка.
+// В конце метод возвращает найденный общий префикс для всех строк в массиве.
+
+
 public class StringPrefix {
     public static void main(String[] args) {
+        // Заданный массив строк
+        String[] strings = { "flower", "flow", "flight" };
 
-        String[] strings = { "flower", "flow", "flight" }; // fl
-        for (int index = 1; index < strings.length; index++) {
+        // Вывод на экран общего префикса всех строк в массиве
+        System.out.println(getPrefix(strings));
+    }
 
-        }
-                System.out.println(getPrefix(strings));
-                
-            }
-        
-            private static String getPrefix(String[] strings) {
-                String prefix = strings[0]; // fl
-                for (int i = 1; i < strings.length; i++) {
-                    while (strings[i].indexOf(prefix)!=0) {
-                        prefix = prefix.substring(0, prefix.length()-1);
-                        if (prefix.isEmpty()) {
-                            return "";
-                        }
-                    }
+    // Метод для получения общего префикса всех строк в массиве
+    private static String getPrefix(String[] strings) {
+        String prefix = strings[0]; // Изначально принимаем первую строку как префикс
+
+        // Проходим по всем строкам, начиная со второй
+        for (int i = 1; i < strings.length; i++) {
+            // Пока текущая строка не начинается с текущего префикса
+            while (strings[i].indexOf(prefix) != 0) {
+                // Уменьшаем длину префикса, удаляя последний символ
+                prefix = prefix.substring(0, prefix.length() - 1);
+                // Если префикс становится пустым, значит, общего префикса не существует
+                if (prefix.isEmpty()) {
+                    return "";
                 }
-                return prefix;
             }
-         }   
-
+        }
+        return prefix; // Возвращаем общий префикс всех строк
+    }
+}

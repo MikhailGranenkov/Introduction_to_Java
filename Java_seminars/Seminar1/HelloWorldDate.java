@@ -1,32 +1,45 @@
 package Seminar1;
 
-import java.time.LocalDateTime;
-
 // Настроить проект, вывести в консоль “Hello world!”.
 // Вывести в консоль системные дату и время.
+
+
+// Пояснения:
+// System.out.println("Hello world");: Этот оператор выводит строку "Hello world" в консоль.
+// System.out.println(LocalDateTime.now());: Этот оператор выводит текущую дату и время
+// в консоль с использованием класса LocalDateTime.
+// Затем идет объявление и инициализация переменных разных типов данных:
+// целые числа, числа с плавающей точкой, строки, символы и логические значения.
+// Далее идет объявление трех массивов: один с указанием размера и два
+// с явной инициализацией элементов.
+// В цикле for происходит итерация по элементам массива array1,
+// и каждый элемент выводится в консоль.
+
+
+import java.time.LocalDateTime;
+
 public class HelloWorldDate {
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        System.out.println("Hello world"); // Вывод строки "Hello world"
 
-        //Date
-        //Caledar
-
+        // Получение текущей даты и времени и их вывод
         System.out.println(LocalDateTime.now());
 
-        int num = 3;
-        double d = 4.6;
-        String s = "Hello!";
-        char c = 't';
-        boolean b = true;
+        // Объявление переменных различных типов данных и присваивание им значений
+        int num = 3; // Целочисленная переменная
+        double d = 4.6; // Переменная с плавающей точкой
+        String s = "Hello!"; // Строковая переменная
+        char c = 't'; // Символьная переменная
+        boolean b = true; // Логическая переменная
 
-        int[] array = new int[6];
-        int[] array1 = {5, 5, 8, 3, 43, 7, -56 };
-        int array2[] = new int[9];
+        // Объявление массивов и их инициализация
+        int[] array = new int[6]; // Массив из 6 целочисленных элементов
+        int[] array1 = {5, 5, 8, 3, 43, 7, -56 }; // Массив, инициализированный сразу с указанными значениями
+        int array2[] = new int[9]; // Еще один массив из 9 целочисленных элементов
 
+        // Итерация по массиву array1 и вывод его элементов
         for (int i = 0; i < array.length; i++) {
             System.out.println(array1[i]);
         }
-
     }
-}   
-
+}

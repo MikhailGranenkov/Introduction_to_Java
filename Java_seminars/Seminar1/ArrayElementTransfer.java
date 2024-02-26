@@ -1,68 +1,113 @@
 package Seminar1;
+
+
 // Задача 2.
-
-import java.util.Arrays;
-
 // Дан массив nums = [3,2,2,3] и число val = 3.
 // Если в массиве есть числа, равные заданному, нужно перенести
 // эти элементы в конец массива.
 // Таким образом, первые несколько (или все) элементов массива
 // должны быть отличны от заданного, а остальные - равны ему.
-public class ArrayElementTransfer {
-  // Вариант 1.
-  public static void main(String[] args) {
-// int[] arr = { 3, 2, 2, 3, 4, 6, 76, 3, 6, -13 };
-//         int val = 6;
-//         int left = 0;
-//         int right = arr.length - 1;
 
+
+// Пояснения:
+// int val = 6;: Это значение, которое нужно переместить в конец массива.
+// int left = 0;: Это индекс начала массива.
+// int right = arr.length - 1;: Это индекс конца массива.
+// Первый цикл while (arr[right] == val) перемещает указатель right к первому элементу,
+// который не равен val.
+// Затем во втором цикле while (left < right) происходит проход по массиву.
+// Если значение в arr[left] равно val, то оно меняется местами с значением в arr[right],
+// и указатель right уменьшается. Это продолжается до тех пор,
+// пока left не станет больше или равно right.
+// После окончания цикла выводится измененный массив с помощью Arrays.toString(arr).
+
+
+// Вариант 1.
+
+// import java.util.Arrays;
+
+// public class ArrayElementTransfer {
+//     public static void main(String[] args) {
+//         int[] arr = { 3, 2, 2, 3, 4, 6, 76, 3, 6, -13 };
+//         int val = 6; // Значение, которое нужно переместить в конец массива
+//         int left = 0; // Индекс левого указателя (начала массива)
+//         int right = arr.length - 1; // Индекс правого указателя (конца массива)
+
+//         // Перемещение указателя right к первому элементу, который не равен val
 //         while (arr[right] == val) {
 //             right--;
 //         }
 
+//         // Пока left меньше right
 //         while (left < right) {
+//             // Если значение в arr[left] равно val
 //             if (arr[left] == val) {
+//                 // Меняем местами значение arr[left] и arr[right]
 //                 arr[left] = arr[right];
 //                 arr[right] = val;
+//                 // Уменьшаем right, чтобы снова найти место для перемещения val
 //                 right--;
-
 //             }
+//             // Увеличиваем left для проверки следующего элемента
 //             left++;
 //         }
+        
+//         // Выводим измененный массив
 //         System.out.println(Arrays.toString(arr));
-//       }
 //     }
+// }
+
 
 // Вариант 2.
 
-int[] arr = { 3, 2, 2, 3, 4, 6, 76, 3, 6, -13 };
-        int val = 6;
-        moveToEndElem(arr, val);
-        System.out.println(Arrays.toString(arr));
+// Пояснения:
+// int val = 6;: Это значение, которое нужно переместить в конец массива.
+// moveToEndElem(int[] arr, int val): Это метод, который перемещает все
+// вхождения заданного значения val в конец массива arr.
+// Внутри метода происходит движение указателей left и right с целью обнаружения элементов,
+// которые нужно переместить.
+// После выполнения метода массив arr будет изменен,
+// и все вхождения значения val будут находиться в его конце.
 
+
+import java.util.Arrays;
+
+public class ArrayElementTransfer {
+
+    public static void main(String[] args) {
+        int[] arr = { 3, 2, 2, 3, 4, 6, 76, 3, 6, -13 };
+        int val = 6; // Значение, которое нужно переместить в конец массива
+        moveToEndElem(arr, val); // Вызов метода для перемещения элементов
+        System.out.println(Arrays.toString(arr)); // Вывод измененного массива
     }
 
     /**
-     * @param arr
-     * @param val
+     * Метод для перемещения всех вхождений заданного значения в конец массива.
+     *
+     * @param arr Массив целых чисел.
+     * @param val Значение, которое нужно переместить в конец массива.
      */
     private static void moveToEndElem(int[] arr, int val) {
-        int left = 0;
-        int right = arr.length - 1;
+        int left = 0; // Левый указатель (начало массива)
+        int right = arr.length - 1; // Правый указатель (конец массива)
 
+        // Перемещение указателя right к первому элементу, который не равен val
         while (arr[right] == val) {
             right--;
         }
 
+        // Пока left меньше right
         while (left < right) {
+            // Если значение в arr[left] равно val
             if (arr[left] == val) {
+                // Меняем местами значение arr[left] и arr[right]
                 arr[left] = arr[right];
                 arr[right] = val;
+                // Уменьшаем right, чтобы снова найти место для перемещения val
                 right--;
-
             }
+            // Увеличиваем left для проверки следующего элемента
             left++;
         }
-      }
     }
-
+}

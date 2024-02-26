@@ -1,7 +1,5 @@
 package Seminar2;
 
-public class Palindrome {
-    
 
 // Задача 3.
 // Напишите метод, который принимает на вход строку (String) и
@@ -9,18 +7,36 @@ public class Palindrome {
 // boolean значение).
 
 
+// Пояснения к коду:
+// public static void main(String[] args) { ... }: 
+// Метод main, с которого начинается выполнение программы.
+// В этом методе создается строка str, которая будет проверяться на палиндром,
+// и вызывается метод isPalindrome(str) для выполнения проверки.
+// public static boolean isPalindrom(String str) { ... }: Метод isPalindrome,
+// который принимает строку и возвращает логическое значение
+// (true, если строка является палиндромом, и false в противном случае).
+// В методе происходит сравнение символов строки с обоих концов.
+// Если символы не совпадают хотя бы для одной пары символов, метод возвращает false.
+// Если все пары символов совпадают, метод возвращает true.
+
+
+public class Palindrome {
+    
     public static void main(String[] args) {
-        String str = "qwerty ytrewq";
-        System.out.println(isPalindrom(str));
+        String str = "qwerty ytrewq"; // Задание строки для проверки на палиндром
+        System.out.println(isPalindrom(str)); // Вывод результата проверки на палиндром
     }
 
+    // Метод для проверки строки на палиндром
     public static boolean isPalindrom(String str) {
+        // Проходим по строке до середины (до половины длины строки)
         for (int i = 0; i < str.length() / 2; i++) {
+            // Сравниваем символы с обоих концов строки
+            // Если они не совпадают, строка не является палиндромом
             if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
-                return false;
+                return false; // Возвращаем false, если не является палиндромом
             }
         }
-        return true;
-
+        return true; // Если все символы совпали, строка является палиндромом, возвращаем true
     }
 }

@@ -6,31 +6,50 @@ package Seminar2;
 // Пример: вход aaaabbbcdd.
 // результат a4b3c1d2.
 
+
+// Этот код выполняет сжатие строки, заменяя повторяющиеся символы
+// исходной строки на символ и количество его повторений.
+// В коде выполняются следующие действия:
+// В методе main определяется исходная строка str для сжатия.
+// В методе compressString создается объект StringBuilder для построения сжатой строки.
+// Инициализируются переменные count для подсчета повторяющихся символов и currentChar
+// для хранения текущего символа.
+// Происходит проход по строке str, начиная со второго символа.
+// Если текущий символ равен предыдущему, увеличивается счетчик повторений (count).
+// Если текущий символ отличается от предыдущего, предыдущий символ и количество его
+// повторений добавляются в StringBuilder, счетчик сбрасывается в единицу,
+// и обновляется текущий символ.
+// После завершения прохода по строке, последний символ и количество его повторений
+// также добавляются в StringBuilder.
+// Полученная сжатая строка возвращается в виде объекта String.
+
+
 public class Compress {
     public static void main(String[] args) {
-        String str = "aaaabbbcdd";
-        System.out.println(compressString(str));
-
+        String str = "aaaabbbcdd"; // Входная строка для сжатия
+        System.out.println(compressString(str)); // Выводим результат сжатия строки
     }
 
+    // Метод для сжатия строки
     public static String compressString(String str){
-        StringBuilder sb = new StringBuilder();
-        int count = 1;
-        char currentChar = str.charAt(0);
+        StringBuilder sb = new StringBuilder(); // Создаем объект StringBuilder для построения сжатой строки
+        int count = 1; // Счетчик для подсчета повторяющихся символов
+        char currentChar = str.charAt(0); // Текущий символ, инициализируем его первым символом в строке
 
+        // Проходим по строке, начиная со второго символа
         for (int i = 1; i < str.length(); i++) {
-            if (str.charAt(i)==currentChar){
+            // Если текущий символ равен предыдущему, увеличиваем счетчик
+            if (str.charAt(i) == currentChar) {
                 count++;
-            }
-            else{
+            } else { // Если текущий символ отличается от предыдущего
+                // Добавляем в StringBuilder предыдущий символ и количество его повторений
                 sb.append(currentChar).append(count);
-                count = 1;
-                currentChar = str.charAt(i);
+                count = 1; // Сбрасываем счетчик повторений
+                currentChar = str.charAt(i); // Обновляем текущий символ
             }
         }
+        // Добавляем в StringBuilder последний символ и количество его повторений
         sb.append(currentChar).append(count);
-        return sb.toString();
-
+        return sb.toString(); // Возвращаем сжатую строку
     }
-
 }
